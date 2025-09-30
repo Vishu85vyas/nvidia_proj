@@ -1,0 +1,23 @@
+Traceback (most recent call last):
+  File "/home/ihubnvidia20/vqe.py", line 71, in <module>
+    qubit_op, num_particles, num_spatial_orbitals, problem, mapper = get_qubit_op(mol_entry, dist)
+  File "/home/ihubnvidia20/vqe.py", line 41, in get_qubit_op
+    properties = driver.run()
+  File "/home/ihubnvidia20/miniconda3/envs/moldysim/lib/python3.9/site-packages/qiskit_nature/second_q/drivers/pyscfd/pyscfdriver.py", line 370, in run
+    self.run_pyscf()
+  File "/home/ihubnvidia20/miniconda3/envs/moldysim/lib/python3.9/site-packages/qiskit_nature/second_q/drivers/pyscfd/pyscfdriver.py", line 498, in run_pyscf
+    self._calc.kernel()
+  File "<string>", line 2, in kernel
+  File "/home/ihubnvidia20/miniconda3/envs/moldysim/lib/python3.9/site-packages/pyscf/scf/hf.py", line 2016, in scf
+    kernel(self, self.conv_tol, self.conv_tol_grad,
+  File "/home/ihubnvidia20/miniconda3/envs/moldysim/lib/python3.9/site-packages/pyscf/scf/hf.py", line 130, in kernel
+    e_tot = mf.energy_tot(dm, h1e, vhf)
+  File "/home/ihubnvidia20/miniconda3/envs/moldysim/lib/python3.9/site-packages/pyscf/scf/hf.py", line 298, in energy_tot
+    nuc = mf.energy_nuc()
+  File "/home/ihubnvidia20/miniconda3/envs/moldysim/lib/python3.9/site-packages/pyscf/scf/hf.py", line 1978, in energy_nuc
+    return self.mol.enuc
+  File "/home/ihubnvidia20/miniconda3/envs/moldysim/lib/python3.9/site-packages/pyscf/gto/mole.py", line 2433, in enuc
+    self._enuc = self.energy_nuc()
+  File "/home/ihubnvidia20/miniconda3/envs/moldysim/lib/python3.9/site-packages/pyscf/gto/mole.py", line 1554, in classical_coulomb_energy
+    if raise_err: raise RuntimeError('Ill geometry')
+RuntimeError: Ill geometry

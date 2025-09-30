@@ -1,0 +1,7 @@
+=== SLURM Job Info ===
+Node        : dgxa1002
+Job ID      : 852
+User        : ihubnvidia20
+=============
+Starting Docker container with Conda env 'moldysim'...
+Job completed.

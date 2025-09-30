@@ -2,13 +2,10 @@ import qiskit_nature
 from qiskit_algorithms.minimum_eigensolvers import VQE
 from qiskit_nature.second_q.drivers import PySCFDriver
 from qiskit_nature.second_q.mappers import JordanWignerMapper
-from qiskit_nature.second_q.transformers import FreezeCoreTransformer
-from qiskit_nature.second_q.transformers import ActiveSpaceTransformer
 from qiskit_algorithms.optimizers import COBYLA
 from qiskit_algorithms.optimizers import SLSQP
 from qiskit.primitives import Estimator
 from qiskit_nature.second_q.circuit.library import HartreeFock, UCCSD
-from qiskit_aer import AerSimulator
 import numpy as np
 import psutil
 import csv
@@ -55,99 +52,36 @@ def store_intermediate_result(eval_count, parameters, mean, std):
     core_usages.append(core_count)
 
     # Debugging check
-    #print(f"Count: {eval_count}, Time: {cumulative_time:.2f}s, CPU: {cpu_percent}, RAM: {ram_used_gb:.2f} GB")
-    with open("optimization_log7.txt", "a") as f:
-                     f.write(f"Count for {eval_count}")
-                     f.write(f"time taken = {cumulative_time:.2f}")
-                     f.write(f" CPU: {cpu_percent}, RAM: {ram_used_gb:.2f} GB")
-                     f.write(f" at {time.time()}\n")
+    print(f"Count: {eval_count}, Time: {cumulative_time:.2f}s, CPU: {cpu_percent}, RAM: {ram_used_gb:.2f} GB")
 
 # Setup the quantum problem
 driver = PySCFDriver(
-    #atom = "H 0.000 0.000 0.000; H 0.740 0.000 0.000",
-    #atom = "Li 0.000 0.000 0.000; H 1.600 0.000 0.000",
-    #atom = "O 0.000 0.000 0.000; H 0.958 0.000 0.000; H -0.239 0.927 0.000",
-    #atom = "C 0.000 0.000 0.000; \
-    #        H 1.090 0.000 0.000; \
-    #        H -0.363 1.027 0.000; \
-    #        H -0.363 -0.514 0.890; \
-    #        H -0.363 -0.514 -0.890",
-    #atom = "C 0 0 0; C 1.54 0 0; O 2.97 0 0; H -0.63 0.63 0.63; H -0.63 -0.63 -0.63; H 0 -1.09 0; H 2.17 0.63 0.63; H 2.17 -0.63 -0.63; H 3.56 0.76 0; H 3.56 -0.76 0",
-    #atom = "C 0.000 0.000 0.000; C 1.540 0.000 0.000; O 2.970 0.000 0.000; \
-    #        H -0.629 0.629 0.629; H -0.629 -0.629 0.629; H -0.629 0.000 -0.900; \
-    #        H 2.170 0.629 0.629; H 2.170 -0.629 -0.629; H 3.930 0.000 0.000",
-    #atom = "C  1.396  0.000  0.000; \
-    #        C  0.698  1.209  0.000; \
-    #        C -0.698  1.209  0.000; \
-    #        C -1.396  0.000  0.000; \
-    #        C -0.698 -1.209  0.000; \
-    #        C  0.698 -1.209  0.000; \
-    #        H  2.479  0.000  0.000; \
-    #        H  1.240  2.148  0.000; \
-    #        H -1.240  2.148  0.000; \
-    #        H -2.479  0.000  0.000; \
-    #        H -1.240 -2.148  0.000; \
-    #        H  1.240 -2.148  0.000",
-    #atom = "C   1.396  0.000  0.000; \
-    #    C   0.698  1.209  0.000; \
-    #    C  -0.698  1.209  0.000; \
-    #    C  -1.396  0.000  0.000; \
-    #    C  -0.698 -1.209  0.000; \
-    #    C   0.698 -1.209  0.000; \
-    #    H   2.479  0.000  0.000; \
-    #    H  -1.240  2.148  0.000; \
-    #    H  -2.479  0.000  0.000; \
-    #    H  -1.240 -2.148  0.000; \
-    #    H   1.240 -2.148  0.000; \
-    #    O   0.000  2.546  0.000; \
-    #    H   0.000  3.120  0.900",
-    atom = "C   1.396   0.000   0.000; \
-        C   0.698   1.209   0.000; \
-        C  -0.698   1.209   0.000; \
-        C  -1.396   0.000   0.000; \
-        C  -0.698  -1.209   0.000; \
-        C   0.698  -1.209   0.000; \
-        H   1.240   2.148   0.000; \
-        H  -1.240   2.148   0.000; \
-        H  -2.479   0.000   0.000; \
-        H  -1.240  -2.148   0.000; \
-        H   1.240  -2.148   0.000; \
-        N   2.500   0.000   0.000; \
-        O   3.250   0.900   0.000; \
-        O   3.250  -0.900   0.000",
-
+    atom="Li 0 0 0; H 0 0 1.59",
     basis="sto3g",
     charge=0,
     spin=0,
 )
 
 problem = driver.run()
-fc_transformer = FreezeCoreTransformer()
-fc_problem = fc_transformer.transform(problem)
-as_transformer = ActiveSpaceTransformer(8,8)
-as_problem = as_transformer.transform(fc_problem)
-hamiltonian = as_problem.hamiltonian
+hamiltonian = problem.hamiltonian
 second_q_op = hamiltonian.second_q_op()
 
 mapper = JordanWignerMapper()
 qubit_jw_op = mapper.map(second_q_op)
 
 var_form = UCCSD(
-    as_problem.num_spatial_orbitals,
-    as_problem.num_particles,
+    problem.num_spatial_orbitals,
+    problem.num_particles,
     mapper,
     initial_state=HartreeFock(
-        as_problem.num_spatial_orbitals,
-        as_problem.num_particles,
+        problem.num_spatial_orbitals,
+        problem.num_particles,
         mapper,
     ),
 )
 
 noiseless_estimator = Estimator()
-#backend = AerSimulator(method='statevector', device='GPU')
-#noiseless_estimator = backend
-#optimizer = SLSQP(maxiter=100)
-optimizer = COBYLA(maxiter=100)
+optimizer = SLSQP(maxiter=100)
 
 vqe = VQE(
     noiseless_estimator,
@@ -164,8 +98,8 @@ vqe_result = problem.interpret(vqe_calc).total_energies[0].real
 min_length = min(len(timestamps), len(counts), len(values), len(ram_usages), len(core_usages))
 
 # Save data to CSV file
-output_file = "output1.csv"
-with open(output_file, mode='a', newline='') as file:
+output_file = "output.csv"
+with open(output_file, mode='w', newline='') as file:
     writer = csv.writer(file)
     header = ['Evaluation Count', 'Timestamp', 'Cumulative Time (s)', 'Energy', 'RAM Usage (GB)', 'Core Count']
     num_cores = len(cpu_usages[0]) if cpu_usages else 0
@@ -198,7 +132,8 @@ plt.xlabel('Evaluation Count')
 plt.ylabel('Exact Energy')
 plt.title('VQE Exact Energies')
 plt.legend()
-plt.savefig("vqe_plotc6h6.png")  # Save the VQE plot
+plt.savefig("vqe_plot.png")  # Save the VQE plot
 plt.close()
 
-print(f"VQE plot saved as vqe_plotc6h6.png")
+print(f"VQE plot saved as vqe_plot.png")
+

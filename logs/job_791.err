@@ -1,0 +1,4 @@
+  File "/workspace/job.py", line 15
+    python vqe.py
+           ^^^
+SyntaxError: invalid syntax

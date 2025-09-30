@@ -1,0 +1,4 @@
+Traceback (most recent call last):
+  File "/home/ihubnvidia20/vqe1.py", line 51, in <module>
+    noiseless_estimator = Estimator(approximation=True)
+NameError: name 'Estimator' is not defined

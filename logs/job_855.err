@@ -1,0 +1,6 @@
+Traceback (most recent call last):
+  File "/home/ihubnvidia20/vqe.py", line 60, in <module>
+    (qubit_op, num_particles, num_spatial_orbitals, problem, mapper) = get_qubit_op(
+  File "/home/ihubnvidia20/vqe.py", line 43, in get_qubit_op
+    qubits.append(mapper.map(problem.second_q_ops()[0]).num_qubits)
+NameError: name 'qubits' is not defined

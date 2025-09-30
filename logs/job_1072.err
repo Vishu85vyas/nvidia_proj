@@ -1,0 +1,4 @@
+  File "/home/ihubnvidia20/vqe1.py", line 8
+    import numpy as np qiskit_nature.settings.use_pauli_sum_op = False 
+                       ^
+SyntaxError: invalid syntax

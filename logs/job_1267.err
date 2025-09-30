@@ -1,0 +1,4 @@
+  File "/home/ihubnvidia20/vqe4.py", line 86
+    basis="sto3g",
+    ^
+SyntaxError: invalid syntax

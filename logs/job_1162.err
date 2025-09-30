@@ -1,0 +1,24 @@
+Traceback (most recent call last):
+  File "/home/ihubnvidia20/vqe.py", line 22, in <module>
+    molecules_dict = load_molecules()
+  File "/home/ihubnvidia20/vqe.py", line 20, in load_molecules
+    return ast.literal_eval(text)   # safely convert string → dict
+  File "/home/ihubnvidia20/miniconda3/envs/moldysim/lib/python3.9/ast.py", line 105, in literal_eval
+    return _convert(node_or_string)
+  File "/home/ihubnvidia20/miniconda3/envs/moldysim/lib/python3.9/ast.py", line 94, in _convert
+    return dict(zip(map(_convert, node.keys),
+  File "/home/ihubnvidia20/miniconda3/envs/moldysim/lib/python3.9/ast.py", line 94, in _convert
+    return dict(zip(map(_convert, node.keys),
+  File "/home/ihubnvidia20/miniconda3/envs/moldysim/lib/python3.9/ast.py", line 85, in _convert
+    return list(map(_convert, node.elts))
+  File "/home/ihubnvidia20/miniconda3/envs/moldysim/lib/python3.9/ast.py", line 85, in _convert
+    return list(map(_convert, node.elts))
+  File "/home/ihubnvidia20/miniconda3/envs/moldysim/lib/python3.9/ast.py", line 104, in _convert
+    return _convert_signed_num(node)
+  File "/home/ihubnvidia20/miniconda3/envs/moldysim/lib/python3.9/ast.py", line 78, in _convert_signed_num
+    return _convert_num(node)
+  File "/home/ihubnvidia20/miniconda3/envs/moldysim/lib/python3.9/ast.py", line 69, in _convert_num
+    _raise_malformed_node(node)
+  File "/home/ihubnvidia20/miniconda3/envs/moldysim/lib/python3.9/ast.py", line 66, in _raise_malformed_node
+    raise ValueError(f'malformed node or string: {node!r}')
+ValueError: malformed node or string: <ast.Name object at 0x7f4a04715130>

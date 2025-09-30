@@ -1,0 +1,6 @@
+Traceback (most recent call last):
+  File "/home/ihubnvidia20/vqe.py", line 77, in <module>
+    qubit_op, num_particles, num_spatial_orbitals, problem, mapper = get_qubit_op(mol_entry, dist)
+  File "/home/ihubnvidia20/vqe.py", line 36, in get_qubit_op
+    coords=coordsi,
+NameError: name 'coordsi' is not defined

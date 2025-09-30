@@ -1,0 +1,3 @@
+slurmstepd-dgxa1002: error: *** JOB 1216 ON dgxa1002 CANCELLED AT 2025-09-19T15:48:26 ***
+slurmstepd-dgxa1002: error: *** STEP 1216.0 ON dgxa1002 CANCELLED AT 2025-09-19T15:48:26 ***
+srun: Job step aborted: Waiting up to 32 seconds for job step to finish.

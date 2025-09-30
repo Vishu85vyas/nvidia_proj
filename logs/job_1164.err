@@ -1,0 +1,18 @@
+Traceback (most recent call last):
+  File "/home/ihubnvidia20/vqe.py", line 80, in <module>
+    qubit_op, num_particles, num_spatial_orbitals, problem, mapper = get_qubit_op(mol_entry, dist)
+  File "/home/ihubnvidia20/vqe.py", line 53, in get_qubit_op
+    es_problem_reduced = transformer.transform(problem)
+  File "/home/ihubnvidia20/miniconda3/envs/moldysim/lib/python3.9/site-packages/qiskit_nature/second_q/transformers/active_space_transformer.py", line 230, in transform
+    return self._transform_electronic_structure_problem(problem)
+  File "/home/ihubnvidia20/miniconda3/envs/moldysim/lib/python3.9/site-packages/qiskit_nature/second_q/transformers/active_space_transformer.py", line 239, in _transform_electronic_structure_problem
+    self._prepare_problem(problem)
+  File "/home/ihubnvidia20/miniconda3/envs/moldysim/lib/python3.9/site-packages/qiskit_nature/second_q/transformers/active_space_transformer.py", line 332, in _prepare_problem
+    self.prepare_active_space(
+  File "/home/ihubnvidia20/miniconda3/envs/moldysim/lib/python3.9/site-packages/qiskit_nature/second_q/transformers/active_space_transformer.py", line 387, in prepare_active_space
+    self._active_alpha_indices, self._active_beta_indices = self._determine_active_space(
+  File "/home/ihubnvidia20/miniconda3/envs/moldysim/lib/python3.9/site-packages/qiskit_nature/second_q/transformers/active_space_transformer.py", line 442, in _determine_active_space
+    self._validate_num_electrons(nelec_inactive)
+  File "/home/ihubnvidia20/miniconda3/envs/moldysim/lib/python3.9/site-packages/qiskit_nature/second_q/transformers/active_space_transformer.py", line 459, in _validate_num_electrons
+    raise QiskitNatureError("More electrons requested than available.")
+qiskit_nature.exceptions.QiskitNatureError: 'More electrons requested than available.'

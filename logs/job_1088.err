@@ -1,0 +1,4 @@
+  File "/home/ihubnvidia20/vqe.py", line 38
+    multiplicity=mol_entry.get("multiplicity", 1),
+    ^
+SyntaxError: invalid syntax

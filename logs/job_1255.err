@@ -1,0 +1,33 @@
+Traceback (most recent call last):
+  File "/home/ihubnvidia20/miniconda3/envs/moldysim/lib/python3.9/site-packages/qiskit_algorithms/minimum_eigensolvers/vqe.py", line 265, in evaluate_energy
+    job = self.estimator.run(batch_size * [ansatz], batch_size * [operator], parameters)
+TypeError: run() takes from 2 to 3 positional arguments but 4 were given
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/ihubnvidia20/vqe4.py", line 111, in <module>
+    vqe_calc = vqe.compute_minimum_eigenvalue(qubit_jw_op)
+  File "/home/ihubnvidia20/miniconda3/envs/moldysim/lib/python3.9/site-packages/qiskit_algorithms/minimum_eigensolvers/vqe.py", line 194, in compute_minimum_eigenvalue
+    optimizer_result = self.optimizer.minimize(
+  File "/home/ihubnvidia20/miniconda3/envs/moldysim/lib/python3.9/site-packages/qiskit_algorithms/optimizers/scipy_optimizer.py", line 148, in minimize
+    raw_result = minimize(
+  File "/home/ihubnvidia20/miniconda3/envs/moldysim/lib/python3.9/site-packages/scipy/optimize/_minimize.py", line 719, in minimize
+    res = _minimize_cobyla(fun, x0, args, constraints, callback=callback,
+  File "/home/ihubnvidia20/miniconda3/envs/moldysim/lib/python3.9/site-packages/scipy/optimize/_cobyla_py.py", line 35, in wrapper
+    return func(*args, **kwargs)
+  File "/home/ihubnvidia20/miniconda3/envs/moldysim/lib/python3.9/site-packages/scipy/optimize/_cobyla_py.py", line 278, in _minimize_cobyla
+    sf = _prepare_scalar_function(fun, x0, args=args, jac=_jac)
+  File "/home/ihubnvidia20/miniconda3/envs/moldysim/lib/python3.9/site-packages/scipy/optimize/_optimize.py", line 288, in _prepare_scalar_function
+    sf = ScalarFunction(fun, x0, args, grad, hess,
+  File "/home/ihubnvidia20/miniconda3/envs/moldysim/lib/python3.9/site-packages/scipy/optimize/_differentiable_functions.py", line 166, in __init__
+    self._update_fun()
+  File "/home/ihubnvidia20/miniconda3/envs/moldysim/lib/python3.9/site-packages/scipy/optimize/_differentiable_functions.py", line 262, in _update_fun
+    self._update_fun_impl()
+  File "/home/ihubnvidia20/miniconda3/envs/moldysim/lib/python3.9/site-packages/scipy/optimize/_differentiable_functions.py", line 163, in update_fun
+    self.f = fun_wrapped(self.x)
+  File "/home/ihubnvidia20/miniconda3/envs/moldysim/lib/python3.9/site-packages/scipy/optimize/_differentiable_functions.py", line 145, in fun_wrapped
+    fx = fun(np.copy(x), *args)
+  File "/home/ihubnvidia20/miniconda3/envs/moldysim/lib/python3.9/site-packages/qiskit_algorithms/minimum_eigensolvers/vqe.py", line 268, in evaluate_energy
+    raise AlgorithmError("The primitive job to evaluate the energy failed!") from exc
+qiskit_algorithms.exceptions.AlgorithmError: 'The primitive job to evaluate the energy failed!'

@@ -1,0 +1,4 @@
+  File "/workspace/job.py", line 15
+    !conda activate moldysim
+    ^
+SyntaxError: invalid syntax

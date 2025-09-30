@@ -1,0 +1,6 @@
+Traceback (most recent call last):
+  File "/home/ihubnvidia20/vqe1.py", line 52, in <module>
+    qubit_op, num_particles, num_spatial_orbitals, problem, mapper = get_qubit_op(mol)
+  File "/home/ihubnvidia20/vqe1.py", line 25, in get_qubit_op
+    driver = qiskit_nature.second_q.drivers.PySCFDriver.from_molecule(molecule)
+AttributeError: module 'qiskit_nature.second_q' has no attribute 'drivers'

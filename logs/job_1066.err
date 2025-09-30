@@ -1,0 +1,4 @@
+Traceback (most recent call last):
+  File "/home/ihubnvidia20/vqe.py", line 96, in <module>
+    log_file.write(f"\nTotal runtime: {elapsed_time:.2f} seconds\n")
+NameError: name 'elapsed_time' is not defined

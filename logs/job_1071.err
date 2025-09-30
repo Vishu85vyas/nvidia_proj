@@ -1,0 +1,4 @@
+  File "/home/ihubnvidia20/vqe1.py", line 5
+    from qiskit_nature.second_q.formats.molecule_info 
+                                                      ^
+SyntaxError: invalid syntax

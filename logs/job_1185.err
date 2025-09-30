@@ -1,0 +1,6 @@
+Traceback (most recent call last):
+  File "/home/ihubnvidia20/vqe.py", line 22, in <module>
+    molecules_dict = load_molecules()
+  File "/home/ihubnvidia20/vqe.py", line 18, in load_molecules
+    with open(file_path, "r") as f:
+FileNotFoundError: [Errno 2] No such file or directory: 'molecules5.txt'

@@ -1,0 +1,8 @@
+=== SLURM Job Info ===
+Node       : dgxa1002
+Job ID     : 1094
+User       : ihubnvidia20
+Start Time : Wed Aug 20 17:47:01 IST 2025
+======================
+Running vqe.py...
+=== Job Completed at Wed Aug 20 17:47:03 IST 2025 ===

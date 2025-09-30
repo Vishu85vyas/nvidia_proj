@@ -1,0 +1,15 @@
+Traceback (most recent call last):
+  File "/home/ihubnvidia20/miniconda3/envs/moldysim/lib/python3.9/site-packages/qiskit_algorithms/minimum_eigensolvers/vqe.py", line 325, in _check_operator_ansatz
+    self.ansatz.num_qubits = operator.num_qubits
+AttributeError: can't set attribute
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/ihubnvidia20/vqe4.py", line 111, in <module>
+    vqe_calc = vqe.compute_minimum_eigenvalue(qubit_jw_op)
+  File "/home/ihubnvidia20/miniconda3/envs/moldysim/lib/python3.9/site-packages/qiskit_algorithms/minimum_eigensolvers/vqe.py", line 166, in compute_minimum_eigenvalue
+    self._check_operator_ansatz(operator)
+  File "/home/ihubnvidia20/miniconda3/envs/moldysim/lib/python3.9/site-packages/qiskit_algorithms/minimum_eigensolvers/vqe.py", line 327, in _check_operator_ansatz
+    raise AlgorithmError(
+qiskit_algorithms.exceptions.AlgorithmError: 'The number of qubits of the ansatz does not match the operator, and the ansatz does not allow setting the number of qubits using `num_qubits`.'

@@ -1,0 +1,14 @@
+Traceback (most recent call last):
+  File "/home/ihubnvidia20/vqe4.py", line 92, in <module>
+    backend = AerSimulator(method='statevector', device='GPU', num_gpus=8)
+  File "/home/ihubnvidia20/miniconda3/envs/moldysim/lib/python3.9/site-packages/qiskit_aer/backends/aer_simulator.py", line 747, in __init__
+    super().__init__(
+  File "/home/ihubnvidia20/miniconda3/envs/moldysim/lib/python3.9/site-packages/qiskit_aer/backends/aerbackend.py", line 90, in __init__
+    self.set_options(**backend_options)
+  File "/home/ihubnvidia20/miniconda3/envs/moldysim/lib/python3.9/site-packages/qiskit_aer/backends/aerbackend.py", line 659, in set_options
+    self.set_option(key, value)
+  File "/home/ihubnvidia20/miniconda3/envs/moldysim/lib/python3.9/site-packages/qiskit_aer/backends/aer_simulator.py", line 923, in set_option
+    super().set_option(key, value)
+  File "/home/ihubnvidia20/miniconda3/envs/moldysim/lib/python3.9/site-packages/qiskit_aer/backends/aerbackend.py", line 646, in set_option
+    raise AerError(f"Invalid option {key}")
+qiskit_aer.aererror.AerError: 'Invalid option num_gpus'

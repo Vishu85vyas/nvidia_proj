@@ -1,0 +1,10 @@
+=== SLURM Job Info ===
+Node       : dgxa1002
+Job ID     : 1201
+User       : ihubnvidia20
+Start Time : Thu Sep 18 15:27:15 IST 2025
+======================
+Running vqe.py...
+System resource data saved to output.csv
+VQE plot saved as vqe_plot.png
+=== Job Completed at Thu Sep 18 15:32:01 IST 2025 ===

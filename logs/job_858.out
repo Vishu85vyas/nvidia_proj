@@ -1,0 +1,10 @@
+=== SLURM Job Info ===
+Node       : dgxa1002
+Job ID     : 858
+User       : ihubnvidia20
+Start Time : Mon Aug  4 17:21:55 IST 2025
+======================
+Running vqe.py...
+All energies have been calculated
+Results have been logged to 'energy_log.txt'.
+=== Job Completed at Mon Aug  4 17:26:30 IST 2025 ===

@@ -1,0 +1,22 @@
+Traceback (most recent call last):
+  File "/home/ihubnvidia20/miniconda3/envs/moldysim/lib/python3.9/site-packages/qiskit_nature/second_q/drivers/pyscfd/pyscfdriver.py", line 411, in _build_molecule
+    self._mol.build(parse_arg=False)
+  File "/home/ihubnvidia20/miniconda3/envs/moldysim/lib/python3.9/site-packages/pyscf/gto/mole.py", line 2597, in build
+    self.nelec
+  File "/home/ihubnvidia20/miniconda3/envs/moldysim/lib/python3.9/site-packages/pyscf/gto/mole.py", line 2385, in nelec
+    raise RuntimeError('Electron number %d and spin %d are not consistent\n'
+RuntimeError: Electron number 51 and spin 0 are not consistent
+Note mol.spin = 2S = Nalpha - Nbeta, not 2S+1
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/ihubnvidia20/vqe4.py", line 110, in <module>
+    problem = driver.run()
+  File "/home/ihubnvidia20/miniconda3/envs/moldysim/lib/python3.9/site-packages/qiskit_nature/second_q/drivers/pyscfd/pyscfdriver.py", line 370, in run
+    self.run_pyscf()
+  File "/home/ihubnvidia20/miniconda3/envs/moldysim/lib/python3.9/site-packages/qiskit_nature/second_q/drivers/pyscfd/pyscfdriver.py", line 469, in run_pyscf
+    self._build_molecule()
+  File "/home/ihubnvidia20/miniconda3/envs/moldysim/lib/python3.9/site-packages/qiskit_nature/second_q/drivers/pyscfd/pyscfdriver.py", line 421, in _build_molecule
+    raise QiskitNatureError("Failed to build the PySCF Molecule object.") from exc
+qiskit_nature.exceptions.QiskitNatureError: 'Failed to build the PySCF Molecule object.'
